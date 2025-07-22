@@ -2,41 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Signature Luxury Spa Design System - Black & Gold Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Luxury Black & Gold Color Palette */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 100% 58%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 85% 65%;
+    --accent-foreground: 0 0% 5%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 45 100% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Luxury Gradients */
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(45 85% 45%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(0 0% 8%) 100%);
+    --gradient-overlay: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+
+    /* Luxury Shadows */
+    --shadow-luxury: 0 20px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-elegant: 0 10px 30px -5px rgba(0,0,0,0.8);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.4);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +113,84 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Luxury Typography */
+  .font-luxury {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-elegant {
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-lg;
+    @apply hover:shadow-luxury transition-all duration-300 hover:scale-105;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .btn-outline-luxury {
+    @apply border-2 border-primary bg-transparent text-primary px-8 py-4 rounded-lg;
+    @apply hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Luxury Cards */
+  .card-luxury {
+    @apply bg-card border border-border rounded-xl p-6 backdrop-blur-sm;
+    box-shadow: var(--shadow-elegant);
+    transition: var(--transition-luxury);
+  }
+
+  .card-luxury:hover {
+    @apply border-primary/50 transform scale-105;
+    box-shadow: var(--shadow-luxury);
+  }
+
+  /* Gold Dividers */
+  .divider-gold {
+    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+
+  /* Fade In Animation */
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  /* Glow Effect */
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes luxuryPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  .animate-luxury-pulse {
+    animation: luxuryPulse 2s ease-in-out infinite;
   }
 }
