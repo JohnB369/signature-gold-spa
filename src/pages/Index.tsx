@@ -3,6 +3,7 @@ import ServicesOverview from "@/components/ServicesOverview";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
+import MobileFloatingButtons from "@/components/MobileFloatingButtons";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <AboutSection />
       <TestimonialsSection />
       <ContactSection />
+      <MobileFloatingButtons />
     </div>
   );
 };
