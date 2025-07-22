@@ -20,7 +20,7 @@ const MobileFloatingButtons = () => {
         <img 
           src="/lovable-uploads/fd12051c-6d2d-4250-ba1e-7d62651e9b4b.png" 
           alt="WhatsApp" 
-          className="h-20 w-20"
+          className="h-8 w-8"
         />
       </Button>
 
