@@ -2,12 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Sparkles, Users, Waves, Heart } from "lucide-react";
+import massageTherapyImg from "@/assets/massage-therapy-men.jpg";
+import signatureTreatmentImg from "@/assets/signature-treatment-men.jpg";
+import spaBathsImg from "@/assets/spa-baths-men.jpg";
+import wellnessSkincareImg from "@/assets/wellness-skincare-men.jpg";
 
 const servicesData = [
   {
     id: 1,
     title: "Massage Therapies",
     icon: Sparkles,
+    image: massageTherapyImg,
     description: "Traditional and specialized massage techniques for ultimate relaxation",
     services: [
       "Classic Massage",
@@ -24,6 +29,7 @@ const servicesData = [
     id: 2,
     title: "Specialty & Signature Treatments",
     icon: Heart,
+    image: signatureTreatmentImg,
     description: "Exclusive treatments crafted for an extraordinary experience",
     services: [
       "Premium Signature Therapy",
@@ -36,6 +42,7 @@ const servicesData = [
     id: 3,
     title: "Baths & Spa Rituals",
     icon: Waves,
+    image: spaBathsImg,
     description: "Immersive spa rituals for complete rejuvenation",
     services: [
       "Shahi Milk Bath",
@@ -48,6 +55,7 @@ const servicesData = [
     id: 4,
     title: "Wellness & Skincare",
     icon: Users,
+    image: wellnessSkincareImg,
     description: "Holistic wellness and premium skincare treatments",
     services: [
       "Relaxation Aromatherapy Massage",
@@ -80,12 +88,22 @@ const ServicesOverview = () => {
           {servicesData.map((service) => {
             const IconComponent = service.icon;
             return (
-              <div key={service.id} className="card-luxury group cursor-pointer">
-                <div className="text-center">
-                  {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-6 group-hover:animate-luxury-pulse">
-                    <IconComponent className="h-8 w-8 text-primary-foreground" />
+              <div key={service.id} className="card-luxury group cursor-pointer overflow-hidden">
+                {/* Service Image */}
+                <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full">
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
                   </div>
+                </div>
+                <div className="px-6 pb-6 text-center">
                   
                   {/* Title */}
                   <h3 className="font-luxury text-xl font-semibold text-foreground mb-4">
