@@ -17,7 +17,11 @@ const MobileFloatingButtons = () => {
         onClick={handleWhatsApp}
         className="bg-green-500 hover:bg-green-600 text-white rounded-full w-14 h-14 p-0 shadow-elegant"
       >
-        <MessageCircle className="h-6 w-6" />
+        <img 
+          src="/lovable-uploads/fd12051c-6d2d-4250-ba1e-7d62651e9b4b.png" 
+          alt="WhatsApp" 
+          className="h-8 w-8"
+        />
       </Button>
 
       {/* Call Button */}
