@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Sparkles, Users, Waves, Heart } from "lucide-react";
 import massageTherapyImg from "@/assets/massage-therapy-men.jpg";
 import signatureTreatmentImg from "@/assets/signature-treatment-men.jpg";
 import spaBathsImg from "@/assets/spa-baths-men.jpg";
@@ -10,64 +7,82 @@ import wellnessSkincareImg from "@/assets/wellness-skincare-men.jpg";
 const servicesData = [
   {
     id: 1,
-    title: "Massage Therapies",
-    icon: Sparkles,
+    title: "Shahi Milk Bath",
     image: massageTherapyImg,
-    description: "Traditional and specialized massage techniques for ultimate relaxation",
-    services: [
-      "Classic Massage",
-      "Six-Hand Massage", 
-      "Body Massage",
-      "Bamboo Massage",
-      "Hot Oil Massage",
-      "Hot Stone Massage",
-      "Cupping Massage"
-    ],
-    details: "Experience our range of therapeutic massages designed to rejuvenate your body and mind. Our certified therapists use premium oils and traditional techniques to provide the ultimate relaxation experience."
+    description: "Price On Call"
   },
   {
     id: 2,
-    title: "Specialty & Signature Treatments",
-    icon: Heart,
+    title: "Bamboo Massage",
     image: signatureTreatmentImg,
-    description: "Exclusive treatments crafted for an extraordinary experience",
-    services: [
-      "Premium Signature Therapy",
-      "Double Paradise (Couple Massage)",
-      "Female-to-Male Massage"
-    ],
-    details: "Our signature treatments are exclusively designed to provide unparalleled luxury and personalized care. Each session is customized to your specific needs and preferences."
+    description: "Price On Call"
   },
   {
     id: 3,
-    title: "Baths & Spa Rituals",
-    icon: Waves,
+    title: "Cupping Massage",
     image: spaBathsImg,
-    description: "Immersive spa rituals for complete rejuvenation",
-    services: [
-      "Shahi Milk Bath",
-      "Jacuzzi Bath", 
-      "Moroccan Hammam"
-    ],
-    details: "Indulge in our luxurious bath treatments that combine ancient rituals with modern spa techniques. Each ritual is designed to cleanse, purify, and revitalize your entire being."
+    description: "Price On Call"
   },
   {
     id: 4,
-    title: "Wellness & Skincare",
-    icon: Users,
+    title: "Jacuzzi Bath",
     image: wellnessSkincareImg,
-    description: "Holistic wellness and premium skincare treatments",
-    services: [
-      "Relaxation Aromatherapy Massage",
-      "Customized Facial Treatments",
-      "Holistic Wellness (Yoga & Mindfulness)"
-    ],
-    details: "Our wellness programs focus on complete mind-body harmony. From skincare to meditation, we offer comprehensive treatments for your overall well-being."
+    description: "Price On Call"
+  },
+  {
+    id: 5,
+    title: "Premium Signature Therapy",
+    image: massageTherapyImg,
+    description: "Price On Call"
+  },
+  {
+    id: 6,
+    title: "Hot Oil Massage",
+    image: signatureTreatmentImg,
+    description: "Price On Call"
+  },
+  {
+    id: 7,
+    title: "Hot Stone Massage",
+    image: spaBathsImg,
+    description: "Price On Call"
+  },
+  {
+    id: 8,
+    title: "Double Paradise",
+    image: wellnessSkincareImg,
+    description: "Price On Call"
+  },
+  {
+    id: 9,
+    title: "Relaxation Aromatherapy Massage",
+    image: massageTherapyImg,
+    description: "Price On Call"
+  },
+  {
+    id: 10,
+    title: "Indulgence For Two (Couple Massage)",
+    image: signatureTreatmentImg,
+    description: "Price On Call"
+  },
+  {
+    id: 11,
+    title: "Female To Male",
+    image: spaBathsImg,
+    description: "Price On Call"
+  },
+  {
+    id: 12,
+    title: "Moroccon Hammam",
+    image: wellnessSkincareImg,
+    description: "Price On Call"
   }
 ];
 
 const ServicesOverview = () => {
-  const [selectedService, setSelectedService] = useState<typeof servicesData[0] | null>(null);
+  const handleCallNow = () => {
+    window.location.href = "tel:+917738404054";
+  };
 
   return (
     <section className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
@@ -84,103 +99,36 @@ const ServicesOverview = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {servicesData.map((service) => {
-            const IconComponent = service.icon;
-            return (
-              <div key={service.id} className="card-luxury group cursor-pointer overflow-hidden">
-                {/* Service Image */}
-                <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full">
-                      <IconComponent className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
-                </div>
-                <div className="px-6 pb-6 text-center">
-                  
-                  {/* Title */}
-                  <h3 className="font-luxury text-xl font-semibold text-foreground mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {servicesData.map((service) => (
+            <div key={service.id} className="relative bg-card rounded-lg overflow-hidden shadow-lg group">
+              {/* Service Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                
+                {/* Service Info Overlay */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-white font-bold text-lg mb-2">
                     {service.title}
                   </h3>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6 font-elegant">
+                  <p className="text-white/90 text-sm mb-3">
                     {service.description}
                   </p>
-                  
-                  {/* Services List Preview */}
-                  <ul className="text-sm text-muted-foreground mb-6 space-y-1">
-                    {service.services.slice(0, 3).map((item, index) => (
-                      <li key={index} className="flex items-center justify-center">
-                        <span className="w-1 h-1 bg-primary rounded-full mr-2"></span>
-                        {item}
-                      </li>
-                    ))}
-                    {service.services.length > 3 && (
-                      <li className="text-primary font-medium">
-                        +{service.services.length - 3} more services
-                      </li>
-                    )}
-                  </ul>
-                  
-                  {/* Price Badge */}
-                  <div className="inline-block bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
-                    <span className="text-primary font-semibold text-sm">Price on Call</span>
-                  </div>
-                  
-                  {/* Learn More Button */}
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button 
-                        variant="outline" 
-                        className="w-full btn-outline-luxury"
-                        onClick={() => setSelectedService(service)}
-                      >
-                        Learn More
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-2xl bg-card border border-primary/20">
-                      <DialogHeader>
-                        <DialogTitle className="font-luxury text-2xl text-primary">
-                          {service.title}
-                        </DialogTitle>
-                      </DialogHeader>
-                      <div className="space-y-6">
-                        <p className="text-muted-foreground font-elegant">
-                          {service.details}
-                        </p>
-                        
-                        <div>
-                          <h4 className="font-semibold text-foreground mb-4">Available Services:</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {service.services.map((item, index) => (
-                              <div key={index} className="flex items-center">
-                                <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                                <span className="text-muted-foreground">{item}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-                          <p className="text-center text-primary font-semibold">
-                            Call 07738 404054 for pricing and booking
-                          </p>
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
+                  <Button 
+                    onClick={handleCallNow}
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold"
+                  >
+                    Call Now
+                  </Button>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
