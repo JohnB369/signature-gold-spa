@@ -100,7 +100,7 @@ const ServicesOverview = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {servicesData.map((service) => (
+          {servicesData?.map((service) => (
             <div key={service.id} className="relative bg-card rounded-lg overflow-hidden shadow-lg group">
               {/* Service Image */}
               <div className="relative h-64 overflow-hidden">
