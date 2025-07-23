@@ -1,21 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, MapPin, Clock, Mail } from "lucide-react";
-
 const ContactSection = () => {
   const handleBookCall = () => {
     window.location.href = "tel:+917738404054";
   };
-
   const handleWhatsApp = () => {
     window.open("https://wa.me/917738404054?text=I would like to book a spa appointment", "_blank");
   };
-
   const handleDirections = () => {
     window.open("https://maps.google.com/?q=Office No 1405, Lotus Link Square Building, Opp. Metro Station, D N Nagar, Shiv Nagar, Andheri West, Mumbai 400053", "_blank");
   };
-
-  return (
-    <section className="py-20 px-6 bg-secondary/5">
+  return <section className="py-20 px-6 bg-secondary/5">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -46,11 +41,7 @@ const ContactSection = () => {
                     Shiv Nagar, Andheri West,<br />
                     Mumbai 400053
                   </p>
-                  <Button 
-                    variant="link" 
-                    onClick={handleDirections}
-                    className="text-primary hover:text-accent p-0 mt-2 font-elegant"
-                  >
+                  <Button variant="link" onClick={handleDirections} className="text-primary hover:text-accent p-0 mt-2 font-elegant">
                     Get Directions →
                   </Button>
                 </div>
@@ -68,10 +59,7 @@ const ContactSection = () => {
                   <p className="text-muted-foreground font-elegant mb-3">
                     Speak directly with our booking team for personalized service
                   </p>
-                  <a 
-                    href="tel:+917738404054"
-                    className="text-primary hover:text-accent font-semibold text-lg"
-                  >
+                  <a href="tel:+917738404054" className="text-primary hover:text-accent font-semibold text-lg">
                     07738 404054
                   </a>
                 </div>
@@ -89,11 +77,7 @@ const ContactSection = () => {
                   <p className="text-muted-foreground font-elegant mb-3">
                     Quick and convenient booking via WhatsApp
                   </p>
-                  <Button 
-                    variant="link" 
-                    onClick={handleWhatsApp}
-                    className="text-primary hover:text-accent p-0 font-elegant"
-                  >
+                  <Button variant="link" onClick={handleWhatsApp} className="text-primary hover:text-accent p-0 font-elegant">
                     Message us on WhatsApp →
                   </Button>
                 </div>
@@ -110,13 +94,10 @@ const ContactSection = () => {
                   <h3 className="font-semibold text-foreground mb-2 text-lg">Opening Hours</h3>
                   <div className="space-y-1 font-elegant">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Monday - Saturday:</span>
-                      <span className="text-foreground">10:00 AM - 10:00 PM</span>
+                      <span className="text-muted-foreground">All days:</span>
+                      <span className="text-foreground">10:00 AM - 11:00 PM</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Sunday:</span>
-                      <span className="text-foreground">11:00 AM - 9:00 PM</span>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -137,19 +118,12 @@ const ContactSection = () => {
                 </p>
                 
                 <div className="space-y-4">
-                  <Button 
-                    onClick={handleBookCall}
-                    className="btn-luxury w-full text-lg py-4"
-                  >
+                  <Button onClick={handleBookCall} className="btn-luxury w-full text-lg py-4">
                     <Phone className="mr-3 h-5 w-5" />
                     Call to Book Now
                   </Button>
                   
-                  <Button 
-                    onClick={handleWhatsApp}
-                    variant="outline"
-                    className="btn-outline-luxury w-full text-lg py-4"
-                  >
+                  <Button onClick={handleWhatsApp} variant="outline" className="btn-outline-luxury w-full text-lg py-4">
                     <MessageCircle className="mr-3 h-5 w-5" />
                     WhatsApp Booking
                   </Button>
@@ -198,8 +172,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
